@@ -1,0 +1,61 @@
+{
+  "name": "cu-api",
+  "version": "1.0.0",
+  "description": "An api for CU Boulder students.",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "Kyle Pfromer",
+  "repository": "github:kpfromer/cu-api",
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "tslint --project tsconfig.json",
+    "start": "ts-node src/main.ts",
+    "commit": "git cz"
+  },
+  "dependencies": {
+    "puppeteer": "^2.1.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.5",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "@types/node": "^13.11.1",
+    "@types/puppeteer": "^2.0.1",
+    "commitizen": "^4.0.4",
+    "cz-conventional-changelog": "^3.1.0",
+    "semantic-release": "^17.0.4",
+    "ts-node": "^8.8.2",
+    "tslint": "^6.1.1",
+    "typescript": "^3.8.3"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/changelog",
+      "@semantic-release/git"
+    ],
+    "branch": "master"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}

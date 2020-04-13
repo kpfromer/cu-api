@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "removeComments": true,
+    "target": "es2017",
+    "sourceMap": false,
+    "outDir": "build",
+    "baseUrl": "./",
+    "lib": ["esnext", "dom"]
+  },
+  "exclude": ["node_modules", "dist", "build"]
+}
