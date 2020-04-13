@@ -9,8 +9,8 @@ jobs:
   include:
     # - stage: unit tests with coverage
     #   script: yarn coverage
-    - stage: run lint and build
-      script: yarn run lint && yarn build
+    - stage: run build
+      script: yarn build
     - stage: npm release
       if: NOT type IN (pull_request)
       node_js: lts/*
