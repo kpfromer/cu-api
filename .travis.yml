@@ -1,0 +1,19 @@
+language: node_js
+
+node_js: "10"
+
+install:
+  - yarn install
+
+jobs:
+  include:
+    # - stage: unit tests with coverage
+    #   script: yarn coverage
+    - stage: run lint and build
+      script: yarn run lint && yarn build
+    - stage: npm release
+      if: NOT type IN (pull_request)
+      node_js: lts/*
+      script:
+        - npx semantic-release
+      on: master
