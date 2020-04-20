@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/kpfromer/cu-api/compare/v2.0.5...v2.0.6) (2020-04-20)
+
+
+### Bug Fixes
+
+* fix main package json name ([acc92a5](https://github.com/kpfromer/cu-api/commit/acc92a50c356363b33a9ac227630dde384178d89))
+
 ## [2.0.5](https://github.com/kpfromer/cu-api/compare/v2.0.4...v2.0.5) (2020-04-20)
 
 
