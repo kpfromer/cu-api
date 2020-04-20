@@ -7,13 +7,8 @@ install:
 
 jobs:
   include:
-    # - stage: unit tests with coverage
-    #   script: yarn coverage
-    - stage: run build
-      script: yarn build
-    - stage: npm release
-      if: NOT type IN (pull_request)
-      node_js: lts/*
+    - stage: release
       script:
-        - npx semantic-release
-      on: master
+        - yarn build
+      after_success:
+        - yarn semantic-release
