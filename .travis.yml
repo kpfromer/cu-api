@@ -1,6 +1,6 @@
 language: node_js
 
-node_js: "10"
+node_js: '10'
 
 install:
   - yarn install
@@ -15,5 +15,6 @@ jobs:
       if: NOT type IN (pull_request)
       node_js: lts/*
       script:
+        - yarn build
         - npx semantic-release
       on: master
