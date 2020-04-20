@@ -1,6 +1,6 @@
 {
   "name": "cu-api",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "An api for CU Boulder students.",
   "main": "lib/index.ts",
   "types": "lib/index.d.ts",

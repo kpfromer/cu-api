@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/kpfromer/cu-api/compare/v2.0.3...v2.0.4) (2020-04-20)
+
+
+### Bug Fixes
+
+* fix out dir for typescript ([75151d8](https://github.com/kpfromer/cu-api/commit/75151d88adc16c45efc18b3622f4f885ffe6636a))
+
 ## [2.0.3](https://github.com/kpfromer/cu-api/compare/v2.0.2...v2.0.3) (2020-04-20)
 
 
