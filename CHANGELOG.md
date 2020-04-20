@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/kpfromer/cu-api/compare/v2.0.2...v2.0.3) (2020-04-20)
+
+
+### Bug Fixes
+
+* fix npm pipeline ([1a07e1a](https://github.com/kpfromer/cu-api/commit/1a07e1aa07c92d2237b83ad0520e8be245aa8147))
+
 ## [2.0.2](https://github.com/kpfromer/cu-api/compare/v2.0.1...v2.0.2) (2020-04-20)
 
 
