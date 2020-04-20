@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/kpfromer/cu-api/compare/v2.0.1...v2.0.2) (2020-04-20)
+
+
+### Bug Fixes
+
+* fix install ([757ef78](https://github.com/kpfromer/cu-api/commit/757ef78a126f17bd9302cb4a87f883af31863d4f))
+
 ## [2.0.1](https://github.com/kpfromer/cu-api/compare/v2.0.0...v2.0.1) (2020-04-20)
 
 
