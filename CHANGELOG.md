@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/kpfromer/cu-api/compare/v1.0.1...v2.0.0) (2020-04-20)
+
+
+### Performance Improvements
+
+* use superagent instead of puppeteer ([13905a7](https://github.com/kpfromer/cu-api/commit/13905a714e27928977968fa0bc2b03059d7f1623))
+
+
+### BREAKING CHANGES
+
+* change the api for the CUSession class
+
 ## [1.0.1](https://github.com/kpfromer/cu-api/compare/v1.0.0...v1.0.1) (2020-04-13)
 
 
