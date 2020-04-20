@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/kpfromer/cu-api/compare/v2.0.0...v2.0.1) (2020-04-20)
+
+
+### Bug Fixes
+
+* fix travis ci pipeline ([99ef248](https://github.com/kpfromer/cu-api/commit/99ef2481d70512a46b2622155180eac9979744ab))
+
 # [2.0.0](https://github.com/kpfromer/cu-api/compare/v1.0.1...v2.0.0) (2020-04-20)
 
 
