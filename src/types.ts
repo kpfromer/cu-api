@@ -12,10 +12,10 @@ export interface ITerm {
   endDate: string;
   termFriendly: string; // "Spring 2020"
   attributeName:
-    | "PREVIOUS_TERM"
-    | "CURRENT_TERM"
-    | "NEXT_TERM"
-    | "NEXT_NEXT_TERM";
+    | 'PREVIOUS_TERM'
+    | 'CURRENT_TERM'
+    | 'NEXT_TERM'
+    | 'NEXT_NEXT_TERM';
 }
 
 export interface ICourseRegistration {
@@ -79,3 +79,8 @@ export interface IGPA {
   cum_GPA: string;
   cur_GPA: string;
 }
+
+// export interface IOptions<D, N> {
+//   date?: (date: string) => D;
+//   number?: (number: string) => N;
+// }

@@ -1,68 +1,106 @@
-import * as puppeteer from "puppeteer";
-import {
-  IResponse,
-  ITerm,
-  ICourseRegistration,
-  IUserInfo,
-  IInstructor,
-  ICourse,
-  IGPA,
-} from "./types";
+import * as path from 'path';
+import * as cheerio from 'cheerio';
+import * as qs from 'querystring';
+import * as request from 'superagent';
+import { IUserInfo, ITerm, IResponse, IGPA, ICourse } from './types';
+// import * as moment from 'moment';
 
-const buffPortalUrl = "https://buffportal.colorado.edu/";
-const userUrl = "https://buffportal.colorado.edu/usews/api/v1/profile/v3";
-const termUrl = "https://buffportal.colorado.edu/usews/api/v1/terms";
-const gpaUrl = "https://buffportal.colorado.edu/usews/api/v1/gpa/all";
+const rootCas = require('ssl-root-cas').create();
+// https://stackoverflow.com/questions/31673587/error-unable-to-verify-the-first-certificate-in-nodejs
+
+rootCas.addFile(path.resolve(__dirname, 'intermediate.pem'));
+
+function getFormValues(
+  $: CheerioStatic,
+  values: string[] = []
+): { [key: string]: string } {
+  Object.values;
+  return values.reduce(
+    (prev, key) => ({
+      ...prev,
+      [key]: $(`input[name='${key}']`).attr('value')
+    }),
+    {}
+  );
+}
+
+const userUrl = 'https://buffportal.colorado.edu/usews/api/v1/profile/v3';
+const termUrl = 'https://buffportal.colorado.edu/usews/api/v1/terms';
+const gpaUrl = 'https://buffportal.colorado.edu/usews/api/v1/gpa/all';
 
 export class CUSession {
-  private browser?: puppeteer.Browser;
-  async init(
-    username: string,
-    password: string,
-    options?: puppeteer.LaunchOptions
-  ): Promise<this> {
-    this.browser = await puppeteer.launch(options);
-    const page = await this.browser.newPage();
-    await page.goto(buffPortalUrl);
-    await page.waitForSelector("button[type='submit']");
-    await page.type("input[id='username']", username); //   await page.screenshot({ path: "example.png" });
-    await page.type("input[id='password']", password);
-    await page.click("button[type='submit']");
+  // superagent maintains cookies needed for cu login
+  private agent: request.SuperAgentStatic &
+    request.Request = request.agent().ca(rootCas);
+  private isLoggedIn = false;
 
-    await page.waitForSelector(".responsiveBuff");
+  //   private parseDate = (date: string) => date;
+  //   private parseNumber = (number: string) => parseFloat(number);
 
-    await page.close();
-    return this;
+  get loggedIn() {
+    return this.isLoggedIn;
   }
 
-  private async getJson<T>(url: string): Promise<T> {
-    if (this.browser) {
-      const page = await this.browser.newPage();
-      const [response] = await Promise.all([
-        page.waitForResponse((res) => res.url() === url),
-        page.goto(url),
-      ]);
-      const json = await response?.json();
-      await page.close();
-      return json as T;
-    }
-    throw new Error("Invalid session. Try logging in!");
+  //   constructor(options?: (string extends D & number extends N) ? IOptions<D, N>? : IOptions<D, N>) {
+  //     if (options?.date) {
+  //       this.parseDate = options.date;
+  //     }
+  //     if (options?.number) {
+  //       this.parseNumber = options.number;
+  //     }
+  //   }
+
+  async init(username: string, password: string): Promise<void> {
+    await this.agent
+      .get('https://buffportal.colorado.edu/')
+      .then((res) => {
+        // console.log(res.text);
+        const $ = cheerio.load(res.text);
+        return this.agent
+          .post(`https://fedauth.colorado.edu${$('form').attr('action')}`)
+          .accept('text/html,application/xhtml+xml,application/xml')
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+          .send(
+            qs.stringify({
+              j_username: username,
+              j_password: password,
+              _eventId_proceed: 'Log In'
+            })
+          );
+      })
+      .then((res) => {
+        const $ = cheerio.load(res.text);
+        const data = getFormValues($, ['RelayState', 'SAMLResponse']);
+        return this.agent
+          .post($('form').attr('action') as string)
+          .accept('text/html,application/xhtml+xml,application/xml')
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+          .send(data);
+        // return agent.post();
+      })
+      .then(() => {
+        this.isLoggedIn = true;
+      });
   }
 
-  async getUserData(): Promise<IUserInfo> {
-    return await this.getJson<IUserInfo>(userUrl);
+  async json<T>(url: string): Promise<T> {
+    return await this.agent.get(url).then((res) => JSON.parse(res.text));
   }
 
-  async getTermData(): Promise<ITerm[]> {
-    return (await this.getJson<IResponse<ITerm[]>>(termUrl)).data;
+  async userData(): Promise<IUserInfo> {
+    return await this.json(userUrl);
   }
 
-  async getGPA(): Promise<IGPA> {
-    return (await this.getJson<IResponse<IGPA>>(gpaUrl)).data;
+  async termData(): Promise<ITerm[]> {
+    return (await this.json<IResponse<ITerm[]>>(termUrl)).data;
   }
 
-  async getClassTermData(term4: string): Promise<Map<string, ICourse>> {
-    const json = await this.getJson<
+  async GPA(): Promise<IGPA> {
+    return (await this.json<IResponse<IGPA>>(gpaUrl)).data;
+  }
+
+  async classTermData(term4: string): Promise<Map<string, ICourse>> {
+    const json = await this.json<
       IResponse<
         { courseDate: string; holidayName: string; courses: ICourse[] }[]
       >
@@ -74,9 +112,5 @@ export class CUSession {
       );
       return courses;
     }, new Map<string, ICourse>());
-  }
-
-  async close() {
-    if (this.browser) this.browser.close();
   }
 }
