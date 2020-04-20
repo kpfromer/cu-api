@@ -11,6 +11,7 @@
     "node": ">=8.10.0"
   },
   "scripts": {
+    "install": "npm run build",
     "build": "tsc -p tsconfig.build.json",
     "lint": "tslint --project tsconfig.json",
     "start": "ts-node src/main.ts",
