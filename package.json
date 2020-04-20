@@ -2,17 +2,29 @@
   "name": "cu-api",
   "version": "2.0.2",
   "description": "An api for CU Boulder students.",
-  "main": "dist/index.ts",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.ts",
+  "types": "lib/index.d.ts",
   "license": "MIT",
   "author": "Kyle Pfromer",
   "repository": "github:kpfromer/cu-api",
   "engines": {
     "node": ">=8.10.0"
   },
+  "files": [
+    "lib/**/*"
+  ],
+  "keywords": [
+    "cu",
+    "cu-boulder",
+    "university",
+    "colorado",
+    "university-of-colorado",
+    "typescript",
+    "api"
+  ],
   "scripts": {
-    "install": "npm run build",
-    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "build": "tsc",
     "lint": "tslint --project tsconfig.json",
     "start": "ts-node src/main.ts",
     "commit": "git cz",
