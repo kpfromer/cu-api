@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/kpfromer/cu-api/compare/v2.0.4...v2.0.5) (2020-04-20)
+
+
+### Bug Fixes
+
+* fix yarn build for travis ([ad2c2d0](https://github.com/kpfromer/cu-api/commit/ad2c2d0237d75e6ed1a10b9cebac13e7ad7629ca))
+
 ## [2.0.4](https://github.com/kpfromer/cu-api/compare/v2.0.3...v2.0.4) (2020-04-20)
 
 
