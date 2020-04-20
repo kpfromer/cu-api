@@ -24,7 +24,7 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "build": "tsc",
+    "build": "tsc && cp src/intermediate.pem lib",
     "lint": "tslint --project tsconfig.json",
     "start": "ts-node src/main.ts",
     "commit": "git cz",
