@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/kpfromer/cu-api/compare/v2.0.6...v2.0.7) (2020-04-20)
+
+
+### Bug Fixes
+
+* add pem to lib ([222193d](https://github.com/kpfromer/cu-api/commit/222193d5ab11bbba18362f0fe6f65ba49df1c9e3))
+
 ## [2.0.6](https://github.com/kpfromer/cu-api/compare/v2.0.5...v2.0.6) (2020-04-20)
 
 
