@@ -50,7 +50,7 @@
     "@types/superagent": "4.1.7",
     "commitizen": "4.0.4",
     "cz-conventional-changelog": "3.1.0",
-    "semantic-release": "17.0.6",
+    "semantic-release": "17.0.7",
     "ts-node": "8.9.0",
     "tslint": "6.1.1",
     "typescript": "3.8.3"
