@@ -96,7 +96,7 @@ export class CUSession {
   }
 
   async GPA(): Promise<IGPA> {
-    return (await this.json<IResponse<IGPA>>(gpaUrl)).data;
+    return (await this.json<IResponse<IGPA[]>>(gpaUrl)).data[0];
   }
 
   async classTermData(term4: string): Promise<Map<string, ICourse>> {
