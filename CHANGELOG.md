@@ -1,3 +1,10 @@
+## [2.0.9](https://github.com/kpfromer/cu-api/compare/v2.0.8...v2.0.9) (2020-05-08)
+
+
+### Bug Fixes
+
+* move cas create to constructor ([0f7ae03](https://github.com/kpfromer/cu-api/commit/0f7ae03c2e7c8c6c9a34a74be379a35848717a5e))
+
 ## [2.0.8](https://github.com/kpfromer/cu-api/compare/v2.0.7...v2.0.8) (2020-05-04)
 
 
