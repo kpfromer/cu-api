@@ -3,12 +3,6 @@ import * as cheerio from 'cheerio';
 import * as qs from 'querystring';
 import * as request from 'superagent';
 import { IUserInfo, ITerm, IResponse, IGPA, ICourse } from './types';
-// import * as moment from 'moment';
-
-const rootCas = require('ssl-root-cas').create();
-// https://stackoverflow.com/questions/31673587/error-unable-to-verify-the-first-certificate-in-nodejs
-
-rootCas.addFile(path.resolve(__dirname, 'intermediate.pem'));
 
 function getFormValues(
   $: CheerioStatic,
@@ -30,26 +24,21 @@ const gpaUrl = 'https://buffportal.colorado.edu/usews/api/v1/gpa/all';
 
 export class CUSession {
   // superagent maintains cookies needed for cu login
-  private agent: request.SuperAgentStatic &
-    request.Request = request.agent().ca(rootCas);
+  private agent: request.SuperAgentStatic & request.Request = request.agent();
   private isLoggedIn = false;
 
-  //   private parseDate = (date: string) => date;
-  //   private parseNumber = (number: string) => parseFloat(number);
-
-  get loggedIn() {
-    return this.isLoggedIn;
+  constructor() {
+    // https://stackoverflow.com/questions/31673587/error-unable-to-verify-the-first-certificate-in-nodejs
+    const rootCas = require('ssl-root-cas').create();
+    rootCas.inject().addFile(path.resolve(__dirname, 'intermediate.pem'));
+    this.agent.ca(rootCas);
   }
 
-  //   constructor(options?: (string extends D & number extends N) ? IOptions<D, N>? : IOptions<D, N>) {
-  //     if (options?.date) {
-  //       this.parseDate = options.date;
-  //     }
-  //     if (options?.number) {
-  //       this.parseNumber = options.number;
-  //     }
-  //   }
-
+  /**
+   * Logs the user in and saves the session for future api calls.
+   * @param username the CU identikey.
+   * @param password the password for the user.
+   */
   async init(username: string, password: string): Promise<void> {
     await this.agent
       .get('https://buffportal.colorado.edu/')
@@ -83,22 +72,43 @@ export class CUSession {
       });
   }
 
-  async json<T>(url: string): Promise<T> {
+  get loggedIn() {
+    return this.isLoggedIn;
+  }
+
+  /**
+   * Returns parsed JSON of url.
+   * @param url the url to parse json from.
+   */
+  private async json<T>(url: string): Promise<T> {
     return await this.agent.get(url).then((res) => JSON.parse(res.text));
   }
 
+  /**
+   * Gets CU user specific data.
+   */
   async userData(): Promise<IUserInfo> {
     return await this.json(userUrl);
   }
 
+  /**
+   * Gets the current term's data.
+   */
   async termData(): Promise<ITerm[]> {
     return (await this.json<IResponse<ITerm[]>>(termUrl)).data;
   }
 
+  /**
+   * Gets the GPA for the user.
+   */
   async GPA(): Promise<IGPA> {
     return (await this.json<IResponse<IGPA[]>>(gpaUrl)).data[0];
   }
 
+  /**
+   * Gets term specific class data.
+   * @param term4 the term to load data for
+   */
   async classTermData(term4: string): Promise<Map<string, ICourse>> {
     const json = await this.json<
       IResponse<
