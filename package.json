@@ -51,7 +51,7 @@
     "commitizen": "4.1.2",
     "cz-conventional-changelog": "3.2.0",
     "semantic-release": "17.0.8",
-    "ts-node": "8.10.1",
+    "ts-node": "8.10.2",
     "tslint": "6.1.2",
     "typescript": "3.9.3"
   },
