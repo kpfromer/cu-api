@@ -1,3 +1,10 @@
+## [2.0.10](https://github.com/kpfromer/cu-api/compare/v2.0.9...v2.0.10) (2020-08-20)
+
+
+### Bug Fixes
+
+* update course term data api url ([8e19c8a](https://github.com/kpfromer/cu-api/commit/8e19c8a7f7c4f41995c66d905cbea56da6b1a4db))
+
 ## [2.0.9](https://github.com/kpfromer/cu-api/compare/v2.0.8...v2.0.9) (2020-05-08)
 
 
