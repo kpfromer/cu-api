@@ -104,7 +104,7 @@ export class CUSession {
       IResponse<
         { courseDate: string; holidayName: string; courses: ICourse[] }[]
       >
-    >(`https://buffportal.colorado.edu/usews/api/v1/schedule/v2/term/${term4}`);
+    >(`https://buffportal.colorado.edu/usews/api/v1/schedule/term/${term4}`);
 
     return json.data.reduce((courses, data) => {
       data.courses.forEach((course) =>
