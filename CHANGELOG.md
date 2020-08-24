@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/kpfromer/cu-api/compare/v2.0.10...v3.0.0) (2020-08-24)
+
+
+### Features
+
+* update types to new cu api version ([f211701](https://github.com/kpfromer/cu-api/commit/f211701b3a9cd0e5e5dd573e5657985b74fe543c))
+
+
+### BREAKING CHANGES
+
+* removes old typings for old cu api
+
 ## [2.0.10](https://github.com/kpfromer/cu-api/compare/v2.0.9...v2.0.10) (2020-08-20)
 
 
