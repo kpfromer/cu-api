@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as cheerio from 'cheerio';
 import * as qs from 'querystring';
 import * as request from 'superagent';
-import { IUserInfo, ITerm, IResponse, IGPA, ICourse } from './types';
+import { IUserInfo, ITerm, IResponse, IGPA, CourseV3 } from './types';
 
 function getFormValues(
   $: CheerioStatic,
@@ -109,18 +109,17 @@ export class CUSession {
    * Gets term specific class data.
    * @param term4 the term to load data for
    */
-  async classTermData(term4: string): Promise<Map<string, ICourse>> {
-    const json = await this.json<
-      IResponse<
-        { courseDate: string; holidayName: string; courses: ICourse[] }[]
-      >
-    >(`https://buffportal.colorado.edu/usews/api/v1/schedule/term/${term4}`);
+  async classTermData(term4: string): Promise<Map<string, CourseV3>> {
+    const courses = await this.json<CourseV3[]>(
+      `https://buffportal.colorado.edu/usews/api/v1/schedule/term/${term4}`
+    );
 
-    return json.data.reduce((courses, data) => {
-      data.courses.forEach((course) =>
-        courses.set(`${course.courseId}-${course.courseSection}`, course)
-      );
-      return courses;
-    }, new Map<string, ICourse>());
+    const courseMap = new Map<string, CourseV3>();
+
+    courses.forEach((course) => {
+      courseMap.set(`${course.crseId}/${course.classSection}`, course);
+    });
+
+    return courseMap;
   }
 }

@@ -46,41 +46,98 @@ export interface IInstructor {
   role: any; // todo
 }
 
-export interface ICourse {
-  personId: string;
-  term4: string;
-  courseSubject: string; // PHYS
-  courseId: string;
-  courseOfferNumber: string;
-  courseSection: string; // 302
-  courseNumber: string; // 1140
-  courseTitle: string; // Experimental Physics
-  courseCareer: string;
-  credits: string; // 0
-  lms: string | null; // moodle/canvas
-  lmsLink: string | null;
-  campus: string;
-  facilityType: string;
-  descrLocation: string; // ECCR 151
-  shortBuildingName: string; // ECCR
-  fullBuildingName: string; // Engr Cntr - Classroom
-  days: string; // MWF
-  courseStartDate: string; // 2020-01-13
-  courseStopDate: string; // 2020-04-30
-  courseStartTime: string; // 18:0
-  courseStopTime: string; // 18:50
-  roomNumber: string; // 151
-  courseSession: string;
-  courseSessionDescription: string;
-  instructors: IInstructor[];
-}
-
 export interface IGPA {
   cum_GPA: string;
   cur_GPA: string;
 }
 
-// export interface IOptions<D, N> {
-//   date?: (date: string) => D;
-//   number?: (number: string) => N;
-// }
+export interface ClassExam {
+  examDt: string;
+  examStartTime: string;
+  examEndTime: string;
+  examBldg: string;
+  examRoom: string;
+}
+
+export interface Instructor {
+  instructorName: string;
+  instrRole: string;
+  instrEmailAddr: string;
+  schedPrintInstr: string;
+}
+
+type MeetingDay =
+  | 'MONDAY'
+  | 'TUESDAY'
+  | 'WEDNESDAY'
+  | 'THURSDAY'
+  | 'FRIDAY'
+  | 'SATURDAY'
+  | 'SUNDAY';
+
+export interface ClassMtgPattern {
+  classMtgNbr: string;
+  bldg: string;
+  bldgDescr: string;
+  facilityType: string;
+  descrLocation: string;
+  room: string;
+  meetingTimeStart: string;
+  meetingTimeEnd: string;
+  stndMtgPat: string;
+  mtgPatStartDt: string;
+  mtgPatEndDt: string;
+  mon: string;
+  tues: string;
+  wed: string;
+  thurs: string;
+  fri: string;
+  sat: string;
+  sun: string;
+  instructors: Instructor[];
+  meetingDays: MeetingDay[];
+}
+
+export interface CourseV3 {
+  emplid: string;
+  classNbr: string;
+  strm: string;
+  institution: string;
+  subject: string;
+  classSection: string;
+  catalogNbr: string;
+  crseCareer: string;
+  acadCareer: string;
+  instrModeDescr: string;
+  instructionMode: string;
+  stdntEnrlStatus: string;
+  enrlCap: string;
+  wlReseqFlg: string;
+  crseId: string;
+  untTaken: string;
+  sessionCode: string;
+  classStartDt: string;
+  classEndDt: string;
+  classDescr: string;
+  courseTitleLong: string;
+  waitlistPos: string;
+  topicDescr: string;
+  crseGradeOff: string;
+  enrlStatusReason: string;
+  termDescr: string;
+  waitCap: string;
+  waitTot: string;
+  endDtOee: string;
+  startDtOee: string;
+  crseOfferNbr: string;
+  ssrComponent: string;
+  url: string;
+  campus: string;
+  lms: string;
+  lmsLink: string;
+  classExams: ClassExam[];
+  classMtgPatterns: ClassMtgPattern[];
+  courseStartDate: string;
+  course: string;
+  sessionDescription: string;
+}
