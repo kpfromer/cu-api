@@ -47,7 +47,7 @@
     "@semantic-release/release-notes-generator": "9.0.1",
     "@types/cheerio": "0.22.21",
     "@types/node": "13.13.15",
-    "@types/superagent": "4.1.9",
+    "@types/superagent": "4.1.10",
     "commitizen": "4.2.0",
     "cz-conventional-changelog": "3.2.1",
     "semantic-release": "17.1.1",
