@@ -31,7 +31,7 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.3",
+    "cheerio": "^1.0.0-rc",
     "moment": "^2.24.0",
     "querystring": "^0.2.0",
     "ssl-root-cas": "^1.3.1",
