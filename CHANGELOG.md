@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/kpfromer/cu-api/compare/v3.0.0...v3.0.1) (2021-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency cheerio to ^1.0.0-rc ([b33246d](https://github.com/kpfromer/cu-api/commit/b33246d3986f44fa2e3de393c169efa7473d9614))
+
 # [3.0.0](https://github.com/kpfromer/cu-api/compare/v2.0.10...v3.0.0) (2020-08-24)
 
 
