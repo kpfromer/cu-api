@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/kpfromer/cu-api/compare/v3.0.1...v3.0.2) (2021-04-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency superagent to ^5.3.1 ([ed6d72f](https://github.com/kpfromer/cu-api/commit/ed6d72f243e1af9720da487246ef3109bfd498c3))
+
 ## [3.0.1](https://github.com/kpfromer/cu-api/compare/v3.0.0...v3.0.1) (2021-04-19)
 
 
