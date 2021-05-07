@@ -48,7 +48,7 @@
     "@types/cheerio": "0.22.21",
     "@types/node": "13.13.51",
     "@types/superagent": "4.1.11",
-    "commitizen": "4.2.3",
+    "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "semantic-release": "17.4.2",
     "ts-node": "8.10.2",
