@@ -45,7 +45,7 @@
     "@semantic-release/git": "9.0.0",
     "@semantic-release/npm": "7.1.1",
     "@semantic-release/release-notes-generator": "9.0.2",
-    "@types/cheerio": "0.22.21",
+    "@types/cheerio": "0.22.28",
     "@types/node": "13.13.51",
     "@types/superagent": "4.1.11",
     "commitizen": "4.2.3",
