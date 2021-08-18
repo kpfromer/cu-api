@@ -43,7 +43,6 @@ export class CUSession {
     await this.agent
       .get('https://buffportal.colorado.edu/')
       .then((res) => {
-        // console.log(res.text);
         const $ = cheerio.load(res.text);
         return this.agent
           .post(`https://fedauth.colorado.edu${$('form').attr('action')}`)
@@ -53,13 +52,14 @@ export class CUSession {
             qs.stringify({
               j_username: username,
               j_password: password,
-              _eventId_proceed: 'Log In'
+              _eventId_proceed: ''
             })
           );
       })
       .then((res) => {
         const $ = cheerio.load(res.text);
         const data = getFormValues($, ['RelayState', 'SAMLResponse']);
+
         return this.agent
           .post($('form').attr('action') as string)
           .accept('text/html,application/xhtml+xml,application/xml')
@@ -102,7 +102,8 @@ export class CUSession {
    * Gets the GPA for the user.
    */
   async GPA(): Promise<IGPA> {
-    return (await this.json<IResponse<IGPA[]>>(gpaUrl)).data[0];
+    const data = await this.json<IGPA[]>(gpaUrl);
+    return data[0];
   }
 
   /**
@@ -110,16 +111,12 @@ export class CUSession {
    * @param term4 the term to load data for
    */
   async classTermData(term4: string): Promise<Map<string, CourseV3>> {
-    const courses = await this.json<CourseV3[]>(
+    const data = await this.json<CourseV3[]>(
       `https://buffportal.colorado.edu/usews/api/v1/schedule/term/${term4}`
     );
 
-    const courseMap = new Map<string, CourseV3>();
-
-    courses.forEach((course) => {
-      courseMap.set(`${course.crseId}/${course.classSection}`, course);
-    });
-
-    return courseMap;
+    return new Map(
+      data.map((course) => [`${course.crseId}-${course.classSection}`, course])
+    );
   }
 }
