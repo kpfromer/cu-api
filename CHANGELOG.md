@@ -1,3 +1,20 @@
+# [4.0.0](https://github.com/kpfromer/cu-api/compare/v3.0.2...v4.0.0) (2021-08-18)
+
+
+### Bug Fixes
+
+* update to new cu api ([19be063](https://github.com/kpfromer/cu-api/commit/19be06397e670d698c3470a6649c230fa4e27077))
+
+
+### Features
+
+* move to pnpm ([c19eef7](https://github.com/kpfromer/cu-api/commit/c19eef7daad4c7f562745b81f95e5a7e284e5e01))
+
+
+### BREAKING CHANGES
+
+* changes the cu api types to reflect current api.
+
 ## [3.0.2](https://github.com/kpfromer/cu-api/compare/v3.0.1...v3.0.2) (2021-04-19)
 
 
