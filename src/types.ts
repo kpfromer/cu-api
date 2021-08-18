@@ -40,10 +40,19 @@ export interface IUserInfo {
   courseRegistrations: ICourseRegistration[];
 }
 
+export interface IClassExam {
+  examDt: string;
+  examStartTime: string;
+  examEndTime: string;
+  examBldg: string;
+  examRoom: string;
+}
+
 export interface IInstructor {
-  name: string;
-  email: string;
-  role: any; // todo
+  instructorName: string;
+  instrRole: string;
+  instrEmailAddr: string;
+  schedPrintInstr: string;
 }
 
 export interface IGPA {
