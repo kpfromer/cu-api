@@ -56,8 +56,13 @@ export interface IInstructor {
 }
 
 export interface IGPA {
-  cum_GPA: string;
-  cur_GPA: string;
+  studentId: string;
+  acadCareer: string;
+  strmCumGpa: string;
+  cumGpa: string;
+  strmCurrGpa: string;
+  curGpa: string;
+  totTakenGpa: string;
 }
 
 export interface ClassExam {
