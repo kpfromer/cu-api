@@ -2,7 +2,7 @@
 
 [![npm
 version](https://badge.fury.io/js/cu-api.svg)](https://badge.fury.io/js/cu-api)
-[![Build Status](https://travis-ci.com/kpfromer/cu-api.svg?branch=master)](https://travis-ci.com/kpfromer/cu-api)
+[![Release](https://github.com/kpfromer/cu-api/actions/workflows/release.yaml/badge.svg?branch=master)](https://github.com/kpfromer/cu-api/actions/workflows/release.yaml)
 
 ## Disclaimer
 
