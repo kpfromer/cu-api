@@ -54,6 +54,10 @@ const CUSession = require('cu-api').CUSession;
 })();
 ```
 
+### CLI
+
+Make sure to install `libsecret` (https://github.com/atom/node-keytar).
+
 ## How it Works
 
 `cu-api` uses `superagent` a http request library to act like a user and login
