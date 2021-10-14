@@ -10,7 +10,7 @@ specifiers:
   '@semantic-release/release-notes-generator': 9.0.2
   '@types/cheerio': 0.22.21
   '@types/inquirer': ^7.3.3
-  '@types/node': 13.13.51
+  '@types/node': 14.17.27
   '@types/superagent': 4.1.11
   chalk: ^4.1.2
   cheerio: ^1.0.0-rc
@@ -43,7 +43,7 @@ devDependencies:
   '@semantic-release/release-notes-generator': 9.0.2_semantic-release@17.4.2
   '@types/cheerio': 0.22.21
   '@types/inquirer': 7.3.3
-  '@types/node': 13.13.51
+  '@types/node': 14.17.27
   '@types/superagent': 4.1.11
   chalk: 4.1.2
   commitizen: 4.2.4
@@ -155,6 +155,7 @@ packages:
   /@commitlint/load/12.1.4:
     resolution: {integrity: sha512-Keszi0IOjRzKfxT+qES/n+KZyLrxy79RQz8wWgssCboYjKEp+wC+fLCgbiMCYjI5k31CIzIOq/16J7Ycr0C0EA==}
     engines: {node: '>=v10'}
+    requiresBuild: true
     dependencies:
       '@commitlint/execute-rule': 12.1.4
       '@commitlint/resolve-extends': 12.1.4
@@ -533,6 +534,10 @@ packages:
 
   /@types/node/13.13.51:
     resolution: {integrity: sha512-66/xg5I5Te4oGi5Jws11PtNmKkZbOPZWyBZZ/l5AOrWj1Dyw+6Ge/JhYTq/2/Yvdqyhrue8RL+DGI298OJ0xcg==}
+    dev: true
+
+  /@types/node/14.17.27:
+    resolution: {integrity: sha512-94+Ahf9IcaDuJTle/2b+wzvjmutxXAEXU6O81JHblYXUg2BDG+dnBy7VxIPHKAyEEDHzCMQydTJuWvrE+Aanzw==}
     dev: true
 
   /@types/normalize-package-data/2.4.0:
@@ -3245,6 +3250,7 @@ packages:
     resolution: {integrity: sha512-rRprLwl8RVaS+Qvx3Wh5hPfPBn9++G6xkGlUupya0s5aDmNjI7z3lnRLB3u7sN4OmbB0pWgzhM9BEJyiWAwtAA==}
     engines: {node: '>=0.8.0'}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
