@@ -9,7 +9,7 @@ specifiers:
   '@semantic-release/npm': 7.1.1
   '@semantic-release/release-notes-generator': 9.0.2
   '@types/cheerio': 0.22.21
-  '@types/inquirer': ^7.3.3
+  '@types/inquirer': 8.2.1
   '@types/node': 13.13.51
   '@types/superagent': 4.1.11
   chalk: ^4.1.2
@@ -42,7 +42,7 @@ devDependencies:
   '@semantic-release/npm': 7.1.1_semantic-release@17.4.2
   '@semantic-release/release-notes-generator': 9.0.2_semantic-release@17.4.2
   '@types/cheerio': 0.22.21
-  '@types/inquirer': 7.3.3
+  '@types/inquirer': 8.2.1
   '@types/node': 13.13.51
   '@types/superagent': 4.1.11
   chalk: 4.1.2
@@ -155,6 +155,7 @@ packages:
   /@commitlint/load/12.1.4:
     resolution: {integrity: sha512-Keszi0IOjRzKfxT+qES/n+KZyLrxy79RQz8wWgssCboYjKEp+wC+fLCgbiMCYjI5k31CIzIOq/16J7Ycr0C0EA==}
     engines: {node: '>=v10'}
+    requiresBuild: true
     dependencies:
       '@commitlint/execute-rule': 12.1.4
       '@commitlint/resolve-extends': 12.1.4
@@ -520,11 +521,11 @@ packages:
     resolution: {integrity: sha512-t73xJJrvdTjXrn4jLS9VSGRbz0nUY3cl2DMGDU48lKl+HR9dbbjW2A9r3g40VA++mQpy6uuHg33gy7du2BKpog==}
     dev: true
 
-  /@types/inquirer/7.3.3:
-    resolution: {integrity: sha512-HhxyLejTHMfohAuhRun4csWigAMjXTmRyiJTU1Y/I1xmggikFMkOUoMQRlFm+zQcPEGHSs3io/0FAmNZf8EymQ==}
+  /@types/inquirer/8.2.1:
+    resolution: {integrity: sha512-wKW3SKIUMmltbykg4I5JzCVzUhkuD9trD6efAmYgN2MrSntY0SMRQzEnD3mkyJ/rv9NLbTC7g3hKKE86YwEDLw==}
     dependencies:
       '@types/through': 0.0.30
-      rxjs: 6.6.7
+      rxjs: 7.3.0
     dev: true
 
   /@types/minimist/1.2.1:
@@ -3245,6 +3246,7 @@ packages:
     resolution: {integrity: sha512-rRprLwl8RVaS+Qvx3Wh5hPfPBn9++G6xkGlUupya0s5aDmNjI7z3lnRLB3u7sN4OmbB0pWgzhM9BEJyiWAwtAA==}
     engines: {node: '>=0.8.0'}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
