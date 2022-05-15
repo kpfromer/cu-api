@@ -9,14 +9,14 @@ specifiers:
   '@semantic-release/npm': 7.1.1
   '@semantic-release/release-notes-generator': 9.0.2
   '@types/cheerio': 0.22.21
-  '@types/inquirer': ^7.3.3
+  '@types/inquirer': 7.3.3
   '@types/node': 13.13.51
   '@types/superagent': 4.1.11
-  chalk: ^4.1.2
+  chalk: 4.1.2
   cheerio: ^1.0.0-rc
   commitizen: 4.2.4
   cz-conventional-changelog: 3.3.0
-  inquirer: ^8.1.2
+  inquirer: 8.2.4
   moment: ^2.24.0
   querystring: ^0.2.0
   semantic-release: 17.4.2
@@ -48,7 +48,7 @@ devDependencies:
   chalk: 4.1.2
   commitizen: 4.2.4
   cz-conventional-changelog: 3.3.0
-  inquirer: 8.1.2
+  inquirer: 8.2.4
   semantic-release: 17.4.2
   ts-node: 8.10.2_typescript@4.3.5
   tslint: 6.1.3_typescript@4.3.5
@@ -155,6 +155,7 @@ packages:
   /@commitlint/load/12.1.4:
     resolution: {integrity: sha512-Keszi0IOjRzKfxT+qES/n+KZyLrxy79RQz8wWgssCboYjKEp+wC+fLCgbiMCYjI5k31CIzIOq/16J7Ycr0C0EA==}
     engines: {node: '>=v10'}
+    requiresBuild: true
     dependencies:
       '@commitlint/execute-rule': 12.1.4
       '@commitlint/resolve-extends': 12.1.4
@@ -1776,9 +1777,9 @@ packages:
       through: 2.3.8
     dev: true
 
-  /inquirer/8.1.2:
-    resolution: {integrity: sha512-DHLKJwLPNgkfwNmsuEUKSejJFbkv0FMO9SMiQbjI3n5NQuCrSIBqP66ggqyz2a6t2qEolKrMjhQ3+W/xXgUQ+Q==}
-    engines: {node: '>=8.0.0'}
+  /inquirer/8.2.4:
+    resolution: {integrity: sha512-nn4F01dxU8VeKfq192IjLsxu0/OmMZ4Lg3xKAns148rCaXP6ntAoEkVYZThWjwON8AlzdZZi6oqnhNbxUG9hVg==}
+    engines: {node: '>=12.0.0'}
     dependencies:
       ansi-escapes: 4.3.2
       chalk: 4.1.2
@@ -1790,10 +1791,11 @@ packages:
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
-      rxjs: 7.3.0
+      rxjs: 7.5.5
       string-width: 4.2.2
       strip-ansi: 6.0.0
       through: 2.3.8
+      wrap-ansi: 7.0.0
     dev: true
 
   /into-stream/6.0.0:
@@ -2758,10 +2760,10 @@ packages:
       tslib: 1.14.1
     dev: true
 
-  /rxjs/7.3.0:
-    resolution: {integrity: sha512-p2yuGIg9S1epc3vrjKf6iVb3RCaAYjYskkO+jHIaV0IjOPlJop4UnodOoFb2xeNwlguqLYvGw1b1McillYb5Gw==}
+  /rxjs/7.5.5:
+    resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
     dependencies:
-      tslib: 2.1.0
+      tslib: 2.2.0
     dev: true
 
   /safe-buffer/5.1.2:
@@ -3169,13 +3171,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tslib/2.1.0:
-    resolution: {integrity: sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==}
-    dev: true
-
   /tslib/2.2.0:
     resolution: {integrity: sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==}
-    dev: false
 
   /tslint/6.1.3_typescript@4.3.5:
     resolution: {integrity: sha512-IbR4nkT96EQOvKE2PW/djGz8iGNeJ4rF2mBfiYaR/nvUWYKJhLwimoJKgjIFEIDibBtOevj7BqCRL4oHeWWUCg==}
@@ -3245,6 +3242,7 @@ packages:
     resolution: {integrity: sha512-rRprLwl8RVaS+Qvx3Wh5hPfPBn9++G6xkGlUupya0s5aDmNjI7z3lnRLB3u7sN4OmbB0pWgzhM9BEJyiWAwtAA==}
     engines: {node: '>=0.8.0'}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
